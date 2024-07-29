@@ -1,6 +1,12 @@
 import React from "react";
+import { useSelector } from "react-redux";
 
 const SideBar = () => {
+  const openSidebar = useSelector(state => state.toggleSidebar.open);
+
+
+
+
   const firstContainer = [
     {
       text: "Home",
@@ -41,12 +47,12 @@ const SideBar = () => {
 
   const sidebarStyle = "p-2 px-4 rounded hover:bg-gray-300 w-full";
   return (
-    <div className=" flex flex-col w-[12%] shadow-lg mt-5">
+    <div className={`flex flex-col w-[12%] shadow-lg mt-5 ${openSidebar?"":"hidden"}`}>
       <ul className=" flex flex-col gap-3 border-b-[1px] pb-6">
-        {firstContainer.map((e) => {
+        {firstContainer.map((e,index) => {
           return (
             <>
-              <a href="/" >
+              <a href="/" key={index}>
                 <li className={`${sidebarStyle} text-gray-700`}>{e.text}</li>
               </a>
             </>
@@ -54,9 +60,9 @@ const SideBar = () => {
         })}
       </ul>
       <ul className="flex flex-col gap-2">
-        {secondContainer.map((e) => {
+        {secondContainer.map((e,index) => {
           return (
-            <a href='/'>
+            <a href='/' key={index}>
               <li className={`${sidebarStyle} text-gray-700`}>{e.text}</li>
             </a>
           );
