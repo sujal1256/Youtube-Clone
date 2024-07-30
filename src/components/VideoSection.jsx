@@ -1,27 +1,30 @@
 import React, { useEffect, useState } from 'react'
 import { VIDEOS_API } from '../constants';
+import VideoCard from './VideoCard';
 
 const VideoSection = () => {
-  // const [data,setData] = useState([]);
+  const [data,setData] = useState([]);
 
   useEffect(()=>{
-    
-    const data = getVideos();
-    // setData(data);
+    getVideos();
   },[])
 
-  // console.log(data);
+  console.log(data);
   
   async function getVideos(){
     const json = await fetch(VIDEOS_API);
-    const daa = await json.json();
-    console.log(daa);
-    
-    return daa;
+    const data = await json.json();
+    setData(data.items);  
   }
+  if(data.length === 0) return;
   return (
-    <div>VideoSection</div>
+    <div className='flex flex-wrap w-full justify-around gap-5 p-5'>
+      
+    {data.map(video=>{
+      return <VideoCard key={video.id} info={{...video}}/>
+    })}
+    </div>
   )
 }
 
-export default VideoSection
+export default VideoSection;

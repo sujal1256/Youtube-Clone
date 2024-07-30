@@ -4,7 +4,7 @@ import VideoSection from './VideoSection'
 
 const Body = () => {
   return (
-    <div className=' h-[100vh] flex '>
+    <div className=' h-[100vh] flex bg-slate-50'>
         <SideBar />
         <VideoSection />
     </div>
