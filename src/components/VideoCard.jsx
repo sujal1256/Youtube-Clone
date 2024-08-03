@@ -17,7 +17,6 @@ const getValidNum=(a)=>{
 
 const VideoCard = ({ info }) => {
   const { snippet, statistics } = info;
-  if (info == undefined) return;
   const likeString = getValidNum(Number(statistics?.likeCount));
   const viewString = getValidNum(Number(statistics?.viewCount));
 
