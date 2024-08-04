@@ -21,7 +21,7 @@ const VideoSection = () => {
   }
   return data.length === 0?<VideoSectionShimmer /> :(
 
-    <div className="flex flex-wrap w-full justify-around gap-2 p-5 overflow-x-scroll">
+    <div className="w-full flex flex-wrap justify-center items-center gap-4 overflow-x-scroll bg-white h-full mx-auto p-2">
       {data.map((video) => {
         return (
           <Link to={'/watch?v=' + video?.id} key={video.id}>

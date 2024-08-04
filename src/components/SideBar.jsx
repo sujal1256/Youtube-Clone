@@ -45,7 +45,7 @@ const SideBar = () => {
   return (
     <div
       className={`flex flex-col w-[12%] bg-white shadow-lg pt-4 ${
-        openSidebar ? "" : "hidden"
+        openSidebar ? "" : "hidden w-0"
       }`}
     >
       <ul className=" flex flex-col gap-3 border-b-[1px] pb-6 ">

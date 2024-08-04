@@ -15,23 +15,19 @@ const SearchBar = () => {
   const store = useSelector((store) => store.search.cache);
 
   const getSearchSuggestions = async () => {
-    console.log("API:", searchText);
-
     const json = await fetch(SEARCH_SUGGESTIONS + searchText);
     const data = await json.json();
 
     setSuggestions(data[1]);
 
     // update cache
-    dispatch(UpdateCache([searchText,data[1]]));
-
+    dispatch(UpdateCache([searchText, data[1]]));
   };
-  
+
   useEffect(() => {
     const timer = setTimeout(() => {
-
       // Get data from store if exists
-      
+
       // to check whether the key is there is store if yes it will take from store else it will make an API call
       if (Object.keys(store).includes(searchText)) {
         setSuggestions(store[searchText]);
