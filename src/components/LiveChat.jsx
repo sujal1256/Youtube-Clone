@@ -1,14 +1,31 @@
 import React, { useEffect, useState } from "react";
 import Message from "./Message";
-import { generateRandomChatMessage, generateRandomName } from "../constants";
+import {
+  generateRandomChatMessage,
+  generateRandomName,
+  LIVE_CHAT_COUNT,
+} from "../constants";
 
 const LiveChat = () => {
   const [liveChats, setLiveChat] = useState([]);
+  const [liveChatMessage, setMessage] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setLiveChat([{
+      name: "Sujal Malhotra",
+      message: liveChatMessage,
+      user:true
+    },
+    ...liveChats])
+    setMessage("");
+  };
+
+
   useEffect(() => {
     const timer = setInterval(() => {
-      liveChats.splice(20,1)
+      liveChats.splice(LIVE_CHAT_COUNT, 1);
       setLiveChat(liveChats);
-      console.log(liveChats);
 
       setLiveChat([
         {
@@ -17,22 +34,32 @@ const LiveChat = () => {
         },
         ...liveChats,
       ]);
-    }, Math.floor(Math.random()*(1000-100)+1));
+    }, Math.floor(Math.random() * (1000 - 500))+500);
     return () => {
       clearInterval(timer);
     };
   }, [liveChats]);
   return (
     <>
-
       <div className="bg-slate-100 w-full h-full border-gray-300 border-2  relative p-2 border-t-2 rounded-t-lg flex flex-col-reverse gap-1 overflow-y-scroll">
         {liveChats.map((chat, index) => (
           <Message {...chat} key={index} />
         ))}
       </div>
-      <div className="bg-slate-100 w-full border-gray-300 border-2 rounded-lg relative p-2 rounded-t-none border-t-0">
-        LiveChat
-      </div>
+      <form className="w-full border-gray-300 border-2 rounded-lg relative  rounded-t-none border-t-0 flex justify-between">
+        <input
+          type="text"
+          value={liveChatMessage}
+          onChange={(e) => setMessage(e.target.value)}
+          className="w-3/4 h-full outline-none px-2"
+        />
+        <button
+          className="p-2 bg-gray-300"
+          onClick={handleSubmit}
+        >
+          Post
+        </button>
+      </form>
     </>
   );
 };
