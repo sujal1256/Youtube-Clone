@@ -100,6 +100,7 @@ const lastNames = [
   "Thomas", "Taylor", "Moore", "Jackson", "Martin"
 ];
 
+export const LIVE_CHAT_COUNT = 20;
 // Function to get a random element from an array
 function getRandomElement(arr) {
   const randomIndex = Math.floor(Math.random() * arr.length);

@@ -1,11 +1,10 @@
 import { faUser } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
-import { generateRandomChatMessage, generateRandomName } from '../constants'
 
-const Message = ({name,message}) => {
+const Message = ({name,message,user}) => {
   return (
-    <div className='flex items-center gap-4 '>
+    <div className={`flex items-center gap-4 ${user?'bg-green-100':null}`}>
       <FontAwesomeIcon icon={faUser} className='p-2 bg-gray-300 rounded-full'/>
       <div className='flex flex-col'>
         <p className='font-semibold'>{name}</p>
