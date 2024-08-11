@@ -1,22 +1,11 @@
   import React from "react";
+import { getValidNum } from "../constants";
 
-
-  const getValidNum=(a)=>{
-    if(a > Math.pow(10,9)){
-      return Math.floor(a/Math.pow(10,9))+'B';
-    }
-    else if(a>Math.pow(10,6)){
-      return Math.floor(a/Math.pow(10,6))+'M';
-    }
-    else if(a>Math.pow(10,3)){
-      return Math.floor(a/Math.pow(10,3))+'K';
-    }
-    return Math.floor(a);
-  }
 
 
   const VideoCard = ({ info }) => {
     const { snippet, statistics } = info;
+    
     const likeString = getValidNum(Number(statistics?.likeCount));
     const viewString = getValidNum(Number(statistics?.viewCount));
 

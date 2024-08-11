@@ -1,24 +1,30 @@
-import React, { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { useSearchParams } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useSearchParams } from "react-router-dom";
 import { closeMenu } from "../utils/SidebarSlice";
 import CommentsContainer from "./CommentsContainer";
 import LiveChat from "./LiveChat";
+import store from "../utils/store";
+import RecommendedVideo from "./RecommendedVideo";
 
 const WatchPage = () => {
   const [params] = useSearchParams();
   const dispatch = useDispatch();
+  const videos = useSelector((store) => store.videos.videos);
+  const [liveChats, setLiveChat] = useState([]);
+
 
   useEffect(() => {
     dispatch(closeMenu());
+    return(()=>setLiveChat([]))
   }, []);
 
   return (
     <div className="p-5 bg-white flex w-full">
       <div className="flex flex-col w-full items-center">
         <iframe
-          width="1200"
-          height="600"
+          width="1000"
+          height="500"
           src={`https://www.youtube.com/embed/${params.get("v")}?autoplay=1`}
           title="YouTube video player"
           allow="accelerometer; autoplay; encrypted-media;  clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -29,13 +35,27 @@ const WatchPage = () => {
         <CommentsContainer />
       </div>
       <div className=" w-1/2 p-5 flex flex-col pt-0">
-          {/* Live Chat */}
+        {/* Live Chat */}
 
-            <LiveChat />
+        <LiveChat liveChats = {liveChats} setLiveChat = {setLiveChat}/>
 
-
-          {/* Recommended movies */}
-          <div className="bg-white w-full h-40 "></div>
+        {/* Recommended movies */}
+        {videos && (
+          <div className="bg-white w-full my-2 h-full">
+            <h1 className="font-bold text-2xl">Recommended Videos</h1>
+            {/* videos */}
+            <div className="h-96 overflow-y-scroll overflow-x-hidden">
+              {videos.length > 0 &&
+                videos.map((e) => {
+                  return (
+                    <Link to={"/watch?v=" + e?.id}>
+                      <RecommendedVideo {...e} />
+                    </Link>
+                  );
+                })}
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );

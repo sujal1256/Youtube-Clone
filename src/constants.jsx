@@ -1,11 +1,21 @@
 const API_KEY = "AIzaSyANDpYVtOHG-gL5-u5BRJvp0zYWqPtFkI8";
 
-export const VIDEOS_API = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&regionCode=IN&maxResults=50&key=${API_KEY}`;
+export const VIDEOS_API = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&regionCode=US&maxResults=50&key=${API_KEY}`;
 
 export const SEARCH_SUGGESTIONS =
   "http://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q=";
 
-  
+export const getValidNum = (a) => {
+  if (a > Math.pow(10, 9)) {
+    return Math.floor(a / Math.pow(10, 9)) + "B";
+  } else if (a > Math.pow(10, 6)) {
+    return Math.floor(a / Math.pow(10, 6)) + "M";
+  } else if (a > Math.pow(10, 3)) {
+    return Math.floor(a / Math.pow(10, 3)) + "K";
+  }
+  return Math.floor(a);
+};
+
 export const comments = [
   {
     name: "Alice",
@@ -87,17 +97,49 @@ export const comments = [
 
 // Arrays of first names and last names
 const firstNames = [
-  "Alice", "Bob", "Charlie", "Dave", "Eve", 
-  "Frank", "Grace", "Hannah", "Ivy", "Jack",
-  "Kenny", "Liam", "Mia", "Noah", "Olivia",
-  "Paul", "Quinn", "Ruby", "Sam", "Tina"
+  "Alice",
+  "Bob",
+  "Charlie",
+  "Dave",
+  "Eve",
+  "Frank",
+  "Grace",
+  "Hannah",
+  "Ivy",
+  "Jack",
+  "Kenny",
+  "Liam",
+  "Mia",
+  "Noah",
+  "Olivia",
+  "Paul",
+  "Quinn",
+  "Ruby",
+  "Sam",
+  "Tina",
 ];
 
 const lastNames = [
-  "Smith", "Johnson", "Williams", "Brown", "Jones", 
-  "Garcia", "Miller", "Davis", "Rodriguez", "Martinez",
-  "Hernandez", "Lopez", "Gonzalez", "Wilson", "Anderson",
-  "Thomas", "Taylor", "Moore", "Jackson", "Martin"
+  "Smith",
+  "Johnson",
+  "Williams",
+  "Brown",
+  "Jones",
+  "Garcia",
+  "Miller",
+  "Davis",
+  "Rodriguez",
+  "Martinez",
+  "Hernandez",
+  "Lopez",
+  "Gonzalez",
+  "Wilson",
+  "Anderson",
+  "Thomas",
+  "Taylor",
+  "Moore",
+  "Jackson",
+  "Martin",
 ];
 
 export const LIVE_CHAT_COUNT = 20;
@@ -127,7 +169,7 @@ const chatMessages = [
   "What's your favorite book?",
   "I'm learning to code in JavaScript!",
   "That sounds like a great idea.",
-  "See you later!"
+  "See you later!",
 ];
 
 // Function to generate a random name
