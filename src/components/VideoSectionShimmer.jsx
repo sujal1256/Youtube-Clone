@@ -2,7 +2,7 @@ import React from "react";
 
 const VideoSectionShimmer = () => {
   return (
-    <div className="flex flex-wrap w-full justify-around gap-3 p-5 overflow-x-scroll">        
+    <div className="w-full flex flex-wrap justify-center items-center gap-4 overflow-x-scroll bg-white h-full mx-auto p-2">        
       {Array(50)
         .fill("")
         .map((e,index) => {

@@ -6,7 +6,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { toggleMenu } from "../utils/SidebarSlice";
 
 const Header = () => {
-
   const state = useSelector((state) => state.toggleSidebar.open);
   const dispatch = useDispatch();
 
@@ -15,15 +14,19 @@ const Header = () => {
   };
 
   return (
-    <div className={`bg-white flex justify-between py-2 items-center px-6` }>
-      <div className="w-[10%] flex justify-start gap-6 items-center">
+    <div className={`bg-white flex justify-between py-2 items-center px-6`}>
+      <div className="w-[12%] flex justify-start gap-6 items-center">
         <button
-          className={`text-gray-600 hover:bg-gray-300 rounded-full p-2 ${state?"bg-gray-200":""}`}
+          className={`text-gray-600 hover:bg-gray-300 rounded-full p-2 ${
+            state ? "bg-gray-200" : ""
+          }`}
           onClick={handleClick}
         >
           {MENU_BAR}
         </button>
-        <Logo />
+        <a href="/" className=" h-fit">
+          <Logo />
+        </a>
       </div>
       <div className=" w-[40%] flex h-9 relative">
         <SearchBar />
