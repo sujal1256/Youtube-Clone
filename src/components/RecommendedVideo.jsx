@@ -4,7 +4,7 @@ import React from "react";
 import { getValidNum } from "../constants";
 
 const RecommendedVideo = ({ snippet, statistics, id }) => {
-  console.log(snippet, statistics);
+  // console.log(snippet, statistics);
   const { title } = snippet;
   const { viewCount, likeCount } = statistics;
   return (
@@ -20,7 +20,7 @@ const RecommendedVideo = ({ snippet, statistics, id }) => {
         <p className="text-sm font-semibold">{title.slice(0,50)}</p>
 
 
-          <p>{`${getValidNum(viewCount)} views | ${getValidNum(likeCount)} likes` }</p>
+          <p className="text-gray-500 flex flex-col text-sm">{`${getValidNum(viewCount)} views | ${getValidNum(likeCount)} likes` }</p>
       </div>
     </div>
   );

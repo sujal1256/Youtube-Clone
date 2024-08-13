@@ -8,6 +8,7 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { loadVideosData } from "../utils/videosSlice";
 import { VIDEOS_API } from "../constants";
+import SearchResults from "./SearchResults";
 
 const appRouter = createBrowserRouter([
   {
@@ -22,6 +23,11 @@ const appRouter = createBrowserRouter([
         path: "/watch",
         element: <WatchPage />,
       },
+      {
+        path: "/search",
+        element: <SearchResults />,
+      },
+      
     ],
   },
 ]);
