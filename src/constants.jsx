@@ -5,52 +5,12 @@ export const VIDEOS_API = `https://youtube.googleapis.com/youtube/v3/videos?part
 export const SEARCH_SUGGESTIONS =
   "http://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q=";
 
-export const SEARCH_RESULT_API_FIRST_HALF = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=50&q=`
+export const SEARCH_RESULT_API_FIRST_HALF = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=50&q=`;
 export const SEARCH_RESULT_API_SECOND_HALF = `&type=video&key=${API_KEY}`;
 
-export const VIDEO_DATA_API = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&id=`
+export const VIDEO_DATA_API = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&id=`;
 
-export const getValidNum = (a) => {
-  if (a > Math.pow(10, 9)) {
-    return Math.floor(a / Math.pow(10, 9)) + "B";
-  } else if (a > Math.pow(10, 6)) { 
-    return Math.floor(a / Math.pow(10, 6)) + "M";
-  } else if (a > Math.pow(10, 3)) {
-    return Math.floor(a / Math.pow(10, 3)) + "K";
-  }
-  return Math.floor(a);
-};
-
-export function timeSinceUpload(milliseconds) {
-  const seconds = Math.floor(milliseconds / 1000);
-  const minutes = Math.floor(seconds / 60);
-  const hours = Math.floor(minutes / 60);
-  const days = Math.floor(hours / 24);
-  const weeks = Math.floor(days / 7);
-  const months = Math.floor(weeks / 4);
-  const years = Math.floor(weeks / 52);
-
-  if (years >= 1) {
-      return `${years} year${years > 1 ? 's' : ''}`;
-  } 
-  else if (months >= 1) {
-      return `${months} month${months > 1 ? 's' : ''}`;
-  } 
-  else if (weeks >= 1) {
-      return `${weeks} week${weeks > 1 ? 's' : ''}`;
-  } 
-  else if (days >= 1) {
-      return `${days} day${days > 1 ? 's' : ''}`;
-  } 
-  else if (hours >= 1) {
-      return `${hours} hour${hours > 1 ? 's' : ''}`;
-  } 
-  else {
-      return `${minutes} minute${minutes > 1 ? 's' : ''}`;
-  }
-}
-
-
+export const LIVE_CHAT_COUNT = 20;
 
 export const comments = [
   {
@@ -132,7 +92,7 @@ export const comments = [
 ];
 
 // Arrays of first names and last names
-const firstNames = [
+export const firstNames = [
   "Alice",
   "Bob",
   "Charlie",
@@ -155,7 +115,7 @@ const firstNames = [
   "Tina",
 ];
 
-const lastNames = [
+export const lastNames = [
   "Smith",
   "Johnson",
   "Williams",
@@ -178,14 +138,7 @@ const lastNames = [
   "Martin",
 ];
 
-export const LIVE_CHAT_COUNT = 20;
-// Function to get a random element from an array
-function getRandomElement(arr) {
-  const randomIndex = Math.floor(Math.random() * arr.length);
-  return arr[randomIndex];
-}
-
-const chatMessages = [
+export const chatMessages = [
   "Hello! How are you?",
   "What's up?",
   "Have you seen the latest movie?",
@@ -209,12 +162,3 @@ const chatMessages = [
 ];
 
 // Function to generate a random name
-export function generateRandomName() {
-  const firstName = getRandomElement(firstNames);
-  const lastName = getRandomElement(lastNames);
-  return `${firstName} ${lastName}`;
-}
-
-export function generateRandomChatMessage() {
-  return getRandomElement(chatMessages);
-}

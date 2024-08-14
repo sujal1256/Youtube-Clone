@@ -4,10 +4,10 @@ import { Link, useLocation, useSearchParams } from "react-router-dom";
 import { closeMenu } from "../utils/SidebarSlice";
 import CommentsContainer from "./CommentsContainer";
 import LiveChat from "./LiveChat";
-import store from "../utils/store";
 import RecommendedVideo from "./RecommendedVideo";
 
 import WatchPageTextBox from "./WatchPageTextBox";
+import useVideoId from "../utils/useVideoId";
 
 const WatchPage = () => {
   const [params] = useSearchParams();
@@ -15,9 +15,9 @@ const WatchPage = () => {
   const videos = useSelector((store) => store.videos.videos);
   const [liveChats, setLiveChat] = useState([]);
   const [showLiveChat, setShowLiveChat] = useState(false);
-  const videoContent = useSelector((store) => store.selectedVideo.video);
+  const videoContent = useVideoId(params.get('v'));
 
-  console.log(videoContent);
+
 
   useEffect(() => {
     dispatch(closeMenu());

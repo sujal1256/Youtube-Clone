@@ -1,25 +1,24 @@
 import React, { useEffect, useState } from "react";
 import Message from "./Message";
-import {
-  generateRandomChatMessage,
-  generateRandomName,
-  LIVE_CHAT_COUNT,
-} from "../constants";
+import { LIVE_CHAT_COUNT } from "../constants";
+import { generateRandomChatMessage, generateRandomName } from "../functions";
 
-const LiveChat = ({liveChats,setLiveChat}) => {
+const LiveChat = ({ liveChats, setLiveChat,showLiveChat }) => {
   const [liveChatMessage, setMessage] = useState("");
 
   const handleSubmit = (e) => {
+    
     e.preventDefault();
-    setLiveChat([{
-      name: "Sujal Malhotra",
-      message: liveChatMessage,
-      user:true
-    },
-    ...liveChats])
+    setLiveChat([
+      {
+        name: "Sujal Malhotra",
+        message: liveChatMessage,
+        user: true,
+      },
+      ...liveChats,
+    ]);
     setMessage("");
   };
-
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -33,7 +32,7 @@ const LiveChat = ({liveChats,setLiveChat}) => {
         },
         ...liveChats,
       ]);
-    }, Math.floor(Math.random() * (1000 - 500))+500);
+    }, Math.floor(Math.random() * (1000 - 500)) + 500);
     return () => {
       clearInterval(timer);
     };
@@ -52,10 +51,7 @@ const LiveChat = ({liveChats,setLiveChat}) => {
           onChange={(e) => setMessage(e.target.value)}
           className="w-full h-full outline-none px-2"
         />
-        <button
-          className="p-2 bg-gray-300"
-          onClick={handleSubmit}
-        >
+        <button className="p-2 bg-gray-300" onClick={handleSubmit}>
           Post
         </button>
       </form>

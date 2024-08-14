@@ -1,5 +1,5 @@
   import React from "react";
-import { getValidNum } from "../constants";
+import { getValidNum } from "../functions";
 
 
 

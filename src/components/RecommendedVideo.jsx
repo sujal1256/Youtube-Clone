@@ -1,7 +1,5 @@
-import { faEye, faThumbsUp } from "@fortawesome/free-regular-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
-import { getValidNum } from "../constants";
+import { getValidNum } from "../functions";
 
 const RecommendedVideo = ({ snippet, statistics, id }) => {
   // console.log(snippet, statistics);

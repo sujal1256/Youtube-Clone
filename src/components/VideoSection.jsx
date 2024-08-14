@@ -18,7 +18,7 @@ const VideoSection = () => {
           <Link
             to={'/watch?v=' + video?.id}
             key={video.id}
-            onClick={()=>dispatch(addVideo(video))}
+            onClick={() => dispatch(addVideo(video))}
           >
             <VideoCard info={{ ...video }} />
           </Link>

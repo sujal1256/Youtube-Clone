@@ -1,22 +1,11 @@
 import React, { useEffect, useState } from "react";
-import {
-  API_KEY,
-  getValidNum,
-  timeSinceUpload,
-  VIDEO_DATA_API,
-} from "../constants";
+
+import { getValidNum, timeSinceUpload} from "../functions";
+import useVideoId from "../utils/useVideoId";
 
 const SearchResultVideo = ({ id }) => {
-  const [videoData, setVideoData] = useState();
-  useEffect(() => {
-    getData();
-  }, [id]);
-  async function getData() {
-    const json = await fetch(`${VIDEO_DATA_API}${id}&key=${API_KEY}`);
-    const data = await json.json();
-    setVideoData(data?.items[0]);
-  }
-  if (!videoData) return;
+const videoData = useVideoId(id);
+
   console.log(videoData);
 
   return (
