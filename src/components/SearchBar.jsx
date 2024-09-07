@@ -5,7 +5,6 @@ import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useDispatch, useSelector } from "react-redux";
 import { UpdateCache } from "../utils/SearchSlice";
-import { Link } from "react-router-dom";
 
 const SearchBar = () => {
   const [searchText, setSearchText] = useState("");
@@ -59,7 +58,7 @@ const SearchBar = () => {
       {suggestions.length === 0 ? null : (
         <div
           className={`absolute top-full bg-white z-10 w-[90%] p-2
-            { isFocused ? null : "hidden"
+            ${ isFocused ? null : "hidden"
           }`}
           //FIXME:
         >

@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import {
-  SEARCH_RESULT_API,
   SEARCH_RESULT_API_FIRST_HALF,
   SEARCH_RESULT_API_SECOND_HALF,
 } from "../constants";

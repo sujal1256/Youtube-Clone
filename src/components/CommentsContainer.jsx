@@ -7,7 +7,7 @@ const CommentsContainer = () => {
   const [commentsArray, setCommentArray] = useState(comments);
 
   const handleClick = (e) => {
-    if (comment == "") return;
+    if (comment === "") return;
     e.preventDefault();
     setCommentArray([
       ...commentsArray,
