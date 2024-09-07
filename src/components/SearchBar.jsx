@@ -62,7 +62,8 @@ const SearchBar = () => {
           }`}
           //FIXME:
         >
-          {suggestions.map((data, index) => (
+        
+        {suggestions.map((data, index) => (
             <a href={"/search?s=" + data} key={index}>
               <div className="text-lg px-1 py-2 flex items-center gap-3 border-b-[1px] border-gray-100">
                 <FontAwesomeIcon

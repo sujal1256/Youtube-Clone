@@ -35,7 +35,7 @@ function App() {
   const dispatch = useDispatch();
   useEffect(() => {
     getVideos();
-  }, []);
+  }, [getVideos]);
 
   async function getVideos() {
     const json = await fetch(VIDEOS_API);

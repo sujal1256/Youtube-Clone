@@ -3,7 +3,7 @@ export const API_KEY = "AIzaSyB6AHPTwhvH75mfViyfytbjzPfFH3dbBW0";
 export const VIDEOS_API = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&regionCode=US&maxResults=50&key=${API_KEY}`;
 
 export const SEARCH_SUGGESTIONS =
-  "http://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q=";
+  "https://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q=";
 
 export const SEARCH_RESULT_API_FIRST_HALF = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=50&q=`;
 export const SEARCH_RESULT_API_SECOND_HALF = `&type=video&key=${API_KEY}`;
