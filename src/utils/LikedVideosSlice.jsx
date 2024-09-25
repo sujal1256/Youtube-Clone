@@ -11,7 +11,7 @@ const LikedVideoSlice = createSlice({
     },
     removeLikedVideo(state, action) {
       const { id } = action.payload;
-      state.likedVideos = state.likedVideos.filter((e) => e.id != id);
+      state.likedVideos = state.likedVideos.filter((e) => e.id !== id);
     },
   },
 });

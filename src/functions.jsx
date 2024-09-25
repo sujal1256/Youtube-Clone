@@ -2,8 +2,6 @@ import {
   firstNames,
   lastNames,
   chatMessages,
-  VIDEO_DATA_API,
-  API_KEY,
 } from "./constants";
 
 export const getValidNum = (a) => {

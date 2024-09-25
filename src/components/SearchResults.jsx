@@ -13,7 +13,7 @@ const SearchResults = () => {
 
   useEffect(() => {
     getVideos();
-  }, [params]);
+  }, [params, getVideos]);
 
   async function getVideos() {
     const json = await fetch(

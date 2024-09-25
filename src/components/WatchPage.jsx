@@ -22,7 +22,7 @@ const WatchPage = () => {
   useEffect(() => {
     dispatch(closeMenu());
     return () => setLiveChat([]);
-  }, []);
+  }, [dispatch]);
 
   return (
     <div className="p-5 bg-white flex w-full">

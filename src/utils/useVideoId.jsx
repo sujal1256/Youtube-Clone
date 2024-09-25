@@ -5,7 +5,7 @@ const useVideoId = (id) => {
 
   useEffect(() => {
     getData(id);
-  }, []);
+  }, [id]);
   async function getData(id) {
     const json = await fetch(`${VIDEO_DATA_API}${id}&key=${API_KEY}`);
     const data = await json.json();
