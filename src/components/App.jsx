@@ -27,21 +27,22 @@ const appRouter = createBrowserRouter([
         path: "/search",
         element: <SearchResults />,
       },
-      
     ],
   },
 ]);
+
 function App() {
   const dispatch = useDispatch();
-  useEffect(() => {
-    getVideos();
-  }, [getVideos]);
 
-  async function getVideos() {
-    const json = await fetch(VIDEOS_API);
-    const data = await json.json();
-    dispatch(loadVideosData(data.items));
-  }
+  useEffect(() => {
+    async function getVideos() {
+      const json = await fetch(VIDEOS_API);
+      const data = await json.json();
+      dispatch(loadVideosData(data.items));
+    }
+
+    getVideos();
+  }, [dispatch]); // 'dispatch' added to the dependency array
 
   return (
     <div>

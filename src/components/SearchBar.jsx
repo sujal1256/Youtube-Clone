@@ -38,7 +38,7 @@ const SearchBar = () => {
     return () => {
       clearTimeout(timer);
     };
-  }, [searchText, getSearchSuggestions]);
+  }, [searchText, getSearchSuggestions, store]);
 
   return (
     <>

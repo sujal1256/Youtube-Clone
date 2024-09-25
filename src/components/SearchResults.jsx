@@ -12,19 +12,21 @@ const SearchResults = () => {
   
 
   useEffect(() => {
+    
+    async function getVideos() {
+      const json = await fetch(
+        SEARCH_RESULT_API_FIRST_HALF +
+          params.get("s") +
+          SEARCH_RESULT_API_SECOND_HALF
+      );
+      const data = await json.json();
+  
+      setSearchResuts(data?.items);
+    }
     getVideos();
   }, [params, getVideos]);
 
-  async function getVideos() {
-    const json = await fetch(
-      SEARCH_RESULT_API_FIRST_HALF +
-        params.get("s") +
-        SEARCH_RESULT_API_SECOND_HALF
-    );
-    const data = await json.json();
 
-    setSearchResuts(data?.items);
-  }
 
   return (
     <div className="bg-white w-full pl-10">
