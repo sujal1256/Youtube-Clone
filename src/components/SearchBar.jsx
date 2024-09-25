@@ -28,7 +28,7 @@ const SearchBar = () => {
       dispatch(UpdateCache([searchText, data[1]]));
     };
 
-    
+
     const timer = setTimeout(() => {
       // Get data from store if exists
 
@@ -42,7 +42,7 @@ const SearchBar = () => {
     return () => {
       clearTimeout(timer);
     };
-  }, [searchText, store]);
+  }, [searchText, store, dispatch]);
 
   return (
     <>
