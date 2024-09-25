@@ -11,8 +11,8 @@ const SearchResults = () => {
   const [searchResuts, setSearchResuts] = useState([]);
   
 
-  useEffect(() => {
-    
+  useEffect(() => { 
+
     async function getVideos() {
       const json = await fetch(
         SEARCH_RESULT_API_FIRST_HALF +
@@ -23,8 +23,9 @@ const SearchResults = () => {
   
       setSearchResuts(data?.items);
     }
+
     getVideos();
-  }, [params, getVideos]);
+  }, [params]);
 
 
 
