@@ -14,17 +14,21 @@ const SearchBar = () => {
   const dispatch = useDispatch();
   const store = useSelector((store) => store.search.cache);
 
-  const getSearchSuggestions = async () => {
-    const json = await fetch(SEARCH_SUGGESTIONS + searchText);
-    const data = await json.json();
 
-    setSuggestions(data[1]);
-
-    // update cache
-    dispatch(UpdateCache([searchText, data[1]]));
-  };
 
   useEffect(() => {
+
+    const getSearchSuggestions = async () => {
+      const json = await fetch(SEARCH_SUGGESTIONS + searchText);
+      const data = await json.json();
+  
+      setSuggestions(data[1]);
+  
+      // update cache
+      dispatch(UpdateCache([searchText, data[1]]));
+    };
+
+    
     const timer = setTimeout(() => {
       // Get data from store if exists
 
