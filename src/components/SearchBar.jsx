@@ -57,9 +57,7 @@ const SearchBar = () => {
 
       {suggestions.length === 0 ? null : (
         <div
-          className={`absolute top-full bg-white z-10 w-[90%] p-2
-            ${ isFocused ? null : "hidden"
-          }`}
+          className={`absolute top-full bg-white z-10 w-[90%] p-2`}
           //FIXME:
         >
         

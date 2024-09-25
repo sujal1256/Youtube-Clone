@@ -1,9 +1,9 @@
-export const API_KEY = "AIzaSyB6AHPTwhvH75mfViyfytbjzPfFH3dbBW0";
+export const API_KEY = "AIzaSyDsH3oDcOxk0_4IxBBsAg2OocyZ8ehBBkg";
 
 export const VIDEOS_API = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&regionCode=US&maxResults=50&key=${API_KEY}`;
-
+  
 export const SEARCH_SUGGESTIONS =
-  "https://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q=";
+  "https://cors-handlers.vercel.app/api/?url=https%3A%2F%2Fsuggestqueries.google.com%2Fcomplete%2Fsearch%3Fclient%3Dfirefox%26ds%3Dyt%26q%3D";
 
 export const SEARCH_RESULT_API_FIRST_HALF = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=50&q=`;
 export const SEARCH_RESULT_API_SECOND_HALF = `&type=video&key=${API_KEY}`;
