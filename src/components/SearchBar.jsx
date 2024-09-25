@@ -9,7 +9,7 @@ import { UpdateCache } from "../utils/SearchSlice";
 const SearchBar = () => {
   const [searchText, setSearchText] = useState("");
   const [suggestions, setSuggestions] = useState([]);
-  const [isFocused, setFocused] = useState(false);
+  const [, setFocused] = useState(false);
 
   const dispatch = useDispatch();
   const store = useSelector((store) => store.search.cache);

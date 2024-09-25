@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 
 import { getValidNum, timeSinceUpload} from "../functions";
 import useVideoId from "../utils/useVideoId";
