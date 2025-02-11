@@ -6,8 +6,6 @@ import useVideoId from "../utils/useVideoId";
 const SearchResultVideo = ({ id }) => {
 const videoData = useVideoId(id);
 
-  console.log(videoData);
-
   return (
     <div className="flex gap-2">
       <div className="overflow-hidden h-[180px] w-[300px] bg-black rounded">

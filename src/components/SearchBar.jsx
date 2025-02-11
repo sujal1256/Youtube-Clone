@@ -14,20 +14,16 @@ const SearchBar = () => {
   const dispatch = useDispatch();
   const store = useSelector((store) => store.search.cache);
 
-
-
   useEffect(() => {
-
     const getSearchSuggestions = async () => {
       const json = await fetch(SEARCH_SUGGESTIONS + searchText);
       const data = await json.json();
-  
+
       setSuggestions(data[1]);
-  
+
       // update cache
       dispatch(UpdateCache([searchText, data[1]]));
     };
-
 
     const timer = setTimeout(() => {
       // Get data from store if exists
@@ -54,18 +50,25 @@ const SearchBar = () => {
         onChange={(e) => setSearchText(e.target.value)}
         onFocus={() => setFocused(true)}
         onBlur={() => setFocused(false)}
+        onKeyDown={(e) => {
+          if (e.key === "Enter") {
+            console.log(window.href);
+            
+            window.location.replace("/search?s=" + searchText);
+          }
+        }}
       />
-      <button className="text-gray-500 rounded-r-3xl border h-full w-[10%] flex justify-center items-center hover:border-gray-400">
+      <a
+        href={"/search?s=" + searchText}
+        className="text-gray-500 rounded-r-3xl border h-full w-[10%] flex justify-center items-center hover:border-gray-400"
+      >
         {SEARCH_BUTTON}
-      </button>
-
+      </a>
       {suggestions.length === 0 ? null : (
         <div
           className={`absolute top-full bg-white z-10 w-[90%] p-2`}
-          //FIXME:
         >
-        
-        {suggestions.map((data, index) => (
+          {suggestions.map((data, index) => (
             <a href={"/search?s=" + data} key={index}>
               <div className="text-lg px-1 py-2 flex items-center gap-3 border-b-[1px] border-gray-100">
                 <FontAwesomeIcon

@@ -37,6 +37,9 @@ const LiveChat = ({ liveChats, setLiveChat,showLiveChat }) => {
       clearInterval(timer);
     };
   }, [liveChats, setLiveChat]);
+
+
+
   return (
     <div>
       <div className="bg-slate-100 w-full h-[62vh] border-gray-300 border-2  relative p-2 border-t-2 rounded-t-lg flex flex-col-reverse gap-1 overflow-y-scroll">
